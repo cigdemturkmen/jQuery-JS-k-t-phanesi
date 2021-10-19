@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <p>
+        kullanmak içn CDN veya external referans olarak sayfaya dahil etmemiz gerekir. $ işareti jQuery'i tanımak için bir semboldür.
+    </p>
+    <button id="btnTikla" class="metin">Tıkla!</button>
+
+    <p class="metin">Lorem Ipsum</p>
+
+    <a href="https://google.com">google'a git'</a>
+
+    <input type="text" name="txtName" value="" /> <br />
+
+    <button id="btnGoster">  Göster  </button>
+    <button id="btnGizle">  Gizle  </button>
+
+    <div id="divKutu" style="width:100px;height:100px; background-color:aqua ; display:none"></div>
+
+    <!--// Cdn yöntemi ile jQuery ekledik.-->
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>-->
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(function () {
+            //document ready olduğunda. her şey bunun içine yazılılr.
+
+            $('#btnTikla').click(function () {
+                //btnTikla butonuna tıklanıldığı zaman yapılmasını istediğimiz işlemler
+                alert("butona tıklandı!");
+                $('.metin').css("color", "#ffcc33"); // butona tıklandığında çalışır.
+            });
+
+            //az kod çok iş  // js'de > document.getElementById('btnTikla') ile $('#btnTikla') aynı.
+
+            // $('.metin').css("color", "#ffcc33"); // sayfa açıldığında otomatil çalışır.
+
+
+            $('p,.metin,#btnTikla,a').click(function () {
+                alert("tıklandı")
+            })
+
+            $('[name = txtName]').css("background-color", "#000").css("color", "#fff");
+
+
+            $('#btnGoster').click(function () {
+                $('#divKutu').show(); // style="display:block"
+            })
+
+            $('#btnGizle').click(function () {
+                $('#divKutu').hide(); // style="display:block"
+            })
+        });
+
+                //$(document).ready(function () {
+        /*document hazır olduğunda*/
+                //});
+    </script>
+</body>
+</html>

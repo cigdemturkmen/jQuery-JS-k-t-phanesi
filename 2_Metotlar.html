@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Metotlar</h1>
+
+    <input type="text" id="txtAd" value="" />
+    <input type="text" id="txtSoyad" value="" />
+
+    <button id="btnKaydet">   Kaydet! </button>
+
+    <br />
+
+    <p id="pMetin">bir şey</p>
+
+    <!--<button onclick="yaziyiDegistir()">Yazısını değiştir</button>-->
+
+    <button id="btnYazisiniDegistir">Yazısını değiştir</button>
+
+    <br />
+
+    <input type="button" id="btnSil" value="element sil" />
+
+    <input type="button" id="btnEkle" value="element ekle" />
+
+    <div id="divContent"></div>
+    <hr />
+    <input id="hdnOgrenciId" type="hidden" value="102" data-soyad="öztürk" data-ad="nur" />
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        //function yaziyiDegistir() {
+
+        //}
+
+        $(function () {
+
+            var ad = $('#hdnOgrenciId').data("ad");
+            var soyad = $('#hdnOgrenciId').data("soyad");
+
+            console.log(ad +' '+ soyad);
+
+            $('#btnEkle').click(function () {
+                var yeniButon = "<button type='button' class='btnYeni'>yeni oluşturuldu</button>";
+                $('#divContent').append(yeniButon);
+            });
+
+            //$('.btnYeni').click(function () {
+            //    alert("yeni oluşturulan butona tıklandı!");
+            //})
+
+            $(document).on('click', '.btnYeni', function () { // DOMa dinamik element eklendiğinde event bind etmek için bu yapı kullanılır.
+                alert("yeni oluşturulan butona tıklandı!");
+            });
+
+            $('#btnKaydet').click(function () {
+                // txtlerin içindeki valueları alarak alert ile gösterelim
+
+                var ad = $('#txtAd').val();
+                var soyad = $('#txtSoyad').val();
+
+                alert(ad + ' ' + soyad);
+            });
+
+            $('#btnYazisiniDegistir').click(function () {
+                $('#pMetin').html("klasdnfklandklasdnaklsdnmaklsd");
+            });
+
+            $('#btnSil').click(function () {
+                $('#btnYazisiniDegistir,#pMetin').remove();
+            });
+
+
+
+
+
+
+
+        });
+    </script>
+</body>
+</html>
